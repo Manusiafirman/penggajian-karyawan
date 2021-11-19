@@ -15,7 +15,6 @@ class CreateKaryawanTable extends Migration
     {
         Schema::create('karyawan', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id')->unsigned();
             $table->integer('nik');
             $table->string('nama_depan');
             $table->string('nama_belakang');
@@ -27,9 +26,6 @@ class CreateKaryawanTable extends Migration
             $table->string('alamat');
             $table->string('avatar');
             $table->string('gaji');
-            $table->foreign('user_id')->references('user_id')
-                ->on('userkaryawan')->onUpdate('cascade')
-                ->onDelete('cascade');
 
             $table->foreign('jabatan')->references('id')
                 ->on('jabatan')->onUpdate('cascade')

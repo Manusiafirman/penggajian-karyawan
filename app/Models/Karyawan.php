@@ -33,7 +33,7 @@ class Karyawan extends Model
 
     public function image()
     {
-        if($this->cove && file_exists(public_path('image/book/' . $this->avatar))){
+        if($this->cove && file_exists(public_path('image/avatar/' . $this->avatar))){
             return asset('image/books/' . $this->avatar);
         }else{
             return asset('image/no_image.png');
@@ -42,7 +42,7 @@ class Karyawan extends Model
 
     public function deleteimage()
     {
-        if($this->avatar && file_exists(public_path('image/books/' . $this->avatar))){
+        if($this->avatar && file_exists(public_path('image/avatar/' . $this->avatar))){
             return unlink(public_path('image/books/' . $this->avatar));
         }
     }

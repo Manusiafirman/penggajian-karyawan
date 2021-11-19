@@ -60,7 +60,7 @@
                             <label for="">Jabatan</label>
                             <select name="jabatan" class="form-control @error('jabatan') is-invalid @enderror" >
                                 @foreach($jabatan as $data)
-                                    <option value="{{$data->id}}">{{$data->name}}</option>
+                                    <option value="{{$data->id}}">{{$data->nama}}</option>
                                 @endforeach
                             </select>
                             @error('jabatan')
@@ -72,8 +72,8 @@
                         <div class="form-group">
                             <label for="">Kantor</label>
                             <select name="kantor" class="form-control @error('kantor') is-invalid @enderror" >
-                                @foreach($kantor as $data)
-                                    <option value="{{$data->id}}">{{$data->alamat}}</option>
+                                @foreach($kantorr as $data)
+                                    <option value="{{$data->id}}">{{$data->nama}}</option>
                                 @endforeach
                             </select>
                             @error('kantor')

@@ -76,7 +76,7 @@ class KantorrController extends Controller
     {
         //
         $kantorr = Kantorr::findOrFail($id);
-        return view('admin.kantor.edit', compact('Kantorr'));
+        return view('admin.kantor.edit', compact('kantorr'));
     }
 
     /**

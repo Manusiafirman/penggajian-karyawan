@@ -31,10 +31,9 @@ class KaryawanController extends Controller
     public function create()
     {
         $jabatan = Jabatann::all();
-        return view('admin.karyawan.create', compact('jabatan'));
+        $kantorr = Kantorr::all();
+        return view('admin.karyawan.create', compact('jabatan','kantorr'));
 
-        $kantor = Kantorr::all();
-        return view('admin.karyawan.create', compact('kantor'));
     }
 
     /**
@@ -46,7 +45,7 @@ class KaryawanController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'nik'=> 'required|unique:books',
+            'nik'=> 'required',
             'nama_depan'=>'required',
             'nama_belakang'=>'required',
             'jenis_kelamin'=>'required',
@@ -62,8 +61,14 @@ class KaryawanController extends Controller
 
         $karyawan = new Karyawan;
         $karyawan->nik = $request->nik;
-        $jabatan->jabatan =$request->jabatan;
-        $kantor->kantor =$request->kantor;
+        $karyawan->nama_depan=$request->nama_depan;
+        $karyawan->nama_belakang=$request->nama_belakang;
+        $karyawan->jenis_kelamin = $request->jenis_kelamin;
+        $karyawan->jabatan =$request->jabatan;
+        $karyawan->kantor =$request->kantor;
+        $karyawan->agama = $request->agama;
+        $karyawan->pendidikan = $request->pendidikan;
+        $karyawan->alamat = $request->alamat;
         // upload image foto
         if ($request->hasFile('avatar')){
             $image = $request->file('avatar');

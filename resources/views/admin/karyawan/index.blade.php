@@ -53,6 +53,7 @@
                             <td>{{$data->alamat}}</td>
                             <td>{{$data->avatar}}</td>
                             <td>{{$data->gaji}}</td>
+                            <td>
                                 <form action="{{route('karyawan.destroy',$data->id)}}" method="post">
                                     @method('delete')
                                     @csrf
